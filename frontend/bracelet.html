@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bracelet</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <!-- Bootstrap JS-->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!--Eigenen Files-->
+  <link rel="stylesheet" href="style.css">
+
+  <!--Overlay-Header,-->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('layout.html')
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector('overlay').innerHTML = data;
+        });
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <overlay>
+
+  </overlay>
+  <!--Overlay Script-->
+  <div class="container">
+    <div class="row justify-content-around">
+      <div class="col-12 col-lg-4 m-1 d-flex justify-content-center">
+        <div class="card" style="width: 30rem;">
+          <img src="./Image/OhrringeArmbänder.jpg" width="90" height="350" class="card-img-top" alt="Collection of different bracelet">
+          <div class="card-body">
+            <h5 class="card-title">Collection of bracelets</h5>
+            <p class="card-text">Introducing our elegant collection of bracelets, featuring a wide variety of sparkling gemstones for you to choose from. Each bracelet is crafted with the highest quality materials, ensuring that they are not only beautiful but also durable. Our collection includes a range of precious stones, such as diamonds, sapphires, and turquoise, in different cuts and sizes. With so many stunning options to choose from, you'll be able to find the perfect bracelet to suit your personal style. Whether you're looking for a statement piece or a subtle accent, our bracelet collection has something for everyone.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 m-1 d-flex justify-content-center">
+        <div class="card" style="width: 30rem;">
+          <img src="./Image/ArmbandBraun.jpg"  width="90" height="350" class="card-img-top" alt="Bracelet with a brown tigers eye stone">
+          <div class="card-body">
+            <h5 class="card-title">Bracelet with tigers eye stone</h5>
+            <p class="card-text">This is our unique and stylish adjustable bracelet, featuring a beautiful tiger's eye gemstone as the centerpiece. The bracelet is crafted with high-quality materials that make it durable and long-lasting. The tiger's eye stone is known for its unique golden-brown color and natural patterns, adding a touch of elegance and sophistication to the bracelet. The adjustable design allows you to customize the fit to your wrist, making it comfortable to wear all day. Whether you're dressing up or dressing down, this bracelet is the perfect accessory to complete your look.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

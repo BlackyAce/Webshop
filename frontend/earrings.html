@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Earrings</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <!-- Bootstrap JS-->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!--Eigenen Files-->
+  <link rel="stylesheet" href="style.css">
+
+  <!--Overlay-Header-->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('layout.html')
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector('overlay').innerHTML = data;
+        });
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <overlay>
+
+  </overlay>
+  
+  <div class="container">
+    <div class="row justify-content-around">
+      <div class="col-12 col-lg-4 m-1 d-flex justify-content-center">
+        <div class="card" style="width: 30rem;">
+          <img src="./Image/HolzOhrringe.jpg" width="90" height="350" class="card-img-top" alt="Silver earrings with two wooden charms">
+          <div class="card-body">
+            <h5 class="card-title">Silver earrings with wood charm</h5>
+            <p class="card-text">Introducing our exclusive collection of gold rings, featuring a wide variety of precious stones for you to choose from. Each ring is crafted with the highest quality silver, adding a touch of elegance and sophistication to any outfit. With a selection of vibrant gemstones to choose from. You are sure to find the perfect ring to suit your personal style. Whether you're looking for a special gift or a treat for yourself, our silver ring collection has something for everyone.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 m-1 d-flex justify-content-center">
+        <div class="card" style="width: 30rem;">
+          <img src="./Image/OhrringeSchwarz.jpg"  width="90" height="350" class="card-img-top" alt="Silver earrings with two black obsidian stones">
+          <div class="card-body">
+            <h5 class="card-title">Obsidian silver earrings</h5>
+            <p class="card-text">These silver earrings are adorned with striking obsidian pendants. The deep black color of the obsidian is set off by the gleaming silver, creating a bold and sophisticated look. The natural beauty of the obsidian is highlighted by the unique cut and shape of the pendants, making these earrings truly one-of-a-kind. The perfect accessory for adding a touch of drama to any outfit, these earrings are sure to turn heads.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
+</body>
+</html>

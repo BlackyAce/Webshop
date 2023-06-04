@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Help</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <!-- Bootstrap JS-->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!--Eigenen Files-->
+  <link rel="stylesheet" href="style.css">
+
+  <!--Overlay-Header-->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('layout.html')
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector('overlay').innerHTML = data;
+        });
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <overlay>
+
+  </overlay>
+  <!--Overlay Script-->
+
+  <div class="container-fluid">
+    <div class="row justify-content-center ">
+      <div class="col-10 col-lg-7 col-xxl-4 border border-dark rounded text-center bg-light p-sm-5 ">
+        <h2>FAQs</h2>
+        <p>
+        <p class="" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false">
+          <strong>What kind of crystals do you sell in your shop?</strong>
+        </p>
+        </p>
+        <div class="collapse" id="collapseExample1">
+          <div class="card card-body text-start">
+            We offer a wide range of natural gemstones including rose quartz, amethyst, turquoise, clear quartz,
+            and many more.
+          </div>
+        </div>
+        <p>
+        <p class="" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false">
+          <strong>Are your crystals authentic and natural?</strong>
+        </p>
+        </p>
+        <div class="collapse" id="collapseExample2">
+          <div class="card card-body text-start">
+            Yes, all of our crystals are authentic and natural. They are sourced from all over the world and are are of
+            the highest quality.
+          </div>
+        </div>
+        <p>
+        <p class="" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false">
+          <strong>How are your jewelry pieces made?</strong>
+        </p>
+        </p>
+        <div class="collapse" id="collapseExample3">
+          <div class="card card-body text-start">
+            Our jewelry pieces are handmade. We use only high-quality materials such as sterling silver and plated gold.
+          </div>
+        </div>
+        <p>
+        <p class="" data-bs-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false">
+          <strong>Can I customize a piece of jewelry?</strong>
+        </p>
+        </p>
+        <div class="collapse" id="collapseExample4">
+          <div class="card card-body text-start">
+            Yes, we offer personalized jewelry that can be designed to your specific requirements.You can choose your
+            favourite color and healing crystal.
+          </div>
+        </div>
+        <p>
+        <p class="" data-bs-toggle="collapse" href="#collapseExample5" role="button" aria-expanded="false">
+          <strong>Do you have any certifications or guarantees for your products?</strong>
+        </p>
+        </p>
+        <div class="collapse" id="collapseExample5">
+          <div class="card card-body text-start">
+            We stand behind the quality and authenticity of our crystals, and we have certifications for our materials
+            and production process.
+
+          </div>
+        </div>
+        <p>
+        <p class="" data-bs-toggle="collapse" href="#collapseExample6" role="button" aria-expanded="false">
+          <strong>What is your return and exchange policy?</strong>
+        </p>
+        </p>
+        <div class="collapse" id="collapseExample6">
+          <div class="card card-body text-start">
+            We accept returns and exchanges within 30 days, as long as the item is in its original condition and
+            packaging. Please contact us for more details.
+          </div>
+        </div>
+        <p>
+        <p class="" data-bs-toggle="collapse" href="#collapseExample7" role="button" aria-expanded="false">
+          <strong>How long will it take for my order to arrive?</strong>
+        </p>
+        </p>
+        <div class="collapse" id="collapseExample7">
+          <div class="card card-body text-start">
+            Delivery times may vary depending on your location. We will provide you with an estimated delivery time when
+            you place your order and keep you updated on the status of your shipment.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Kontaktformular-->
+  <div class="container-fluid">
+    <div class="row justify-content-center ">
+      <div class="col-10 col-lg-7 col-xxl-4 border border-dark rounded text-center bg-light p-sm-5 ">
+        Or use the contact form below to send us a message:<br>
+
+        <div class="row">
+          <div class="col mt-5">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="mb-4">
+              <label for="exampleFormControlTextarea1" class="form-label">Write your request here</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button type="Submit" class="btn bg-dark text-white mt-3">Send</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+  </div>
+
+  <body>
+
+
+
+  </body>
+
+
+
+</html>

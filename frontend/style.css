@@ -1,0 +1,38 @@
+body {
+	font-family: Georgia, serif;
+    background-color: #f3c5a6;	
+    margin-top: 9rem;	
+    margin-bottom: 5rem;
+    margin-left: 1rem;
+    margin-right:1rem;
+}
+
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg%27%3E%3Cpath stroke='rgba(243,197,166)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+/*um die Farbe des Nav-togglers zu ändern, auch in URL ändern*/
+
+.custom-toggler.navbar-toggler {
+  border-color: rgb(243,197,166);
+}
+
+  /*Anmelde Formular */
+
+  @media (max-width: 768px) {
+    .form-container {
+      width: 80%;
+      margin-top: 60%;
+    }
+    .mt-8rem {
+      margin-top: 13rem;
+    }
+  }
+
+  @media (max-width: 425px){
+    .mt-8rem{
+      margin-top: 15rem;
+    }}
+    
+ 
+
