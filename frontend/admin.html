@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Admin</title>
+  <title>Create new product</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,15 +20,8 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!--Overlay-Header-->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      fetch('layout.html')
-        .then(response => response.text())
-        .then(data => {
-          document.querySelector('overlay').innerHTML = data;
-        });
-    });
-  </script>
+  <script src="./scripts/loadOverlay.js" defer></script>
+  <script src="./scripts/login.js" defer></script>
 </head>
 
 <body>
@@ -69,7 +62,6 @@
               <label for="inputProductPrice" class="form-label">Price</label>
               <div class="input-group">
                 <span class="input-group-text">€</span>
-                <span class="input-group-text">0.00</span>
                 <input type="text" class="form-control" id="inputProductPrice" aria-label="Dollar amount (with dot and two decimal places)">
               </div>
             </div>

@@ -1,38 +1,68 @@
-document.getElementById("createUser-form").addEventListener("submit", function(event){
-    event.preventDefault();
 
-    const formData = new FormData();
+$(document).ready(function () {
+  $('#createUser-form').submit(function (e) {
+    e.preventDefault();
 
-    formData.append("inputFirstName", document.querySelector("#inputFirstName").value);
-    formData.append("inputLastName", document.querySelector("#inputLastName").value);
-    formData.append("inputEmail", document.querySelector("#inputEmail").value);
-    formData.append("inputPassword", document.querySelector("#inputPassword").value);
-    formData.append("inputStreetAdress", document.querySelector("#inputStreetAdress").value);
-    formData.append("StreetNumber", document.querySelector("#StreetNumber").value);
-    formData.append("City", document.querySelector("#City").value);
-    formData.append("PostalCode", document.querySelector("#PostalCode").value);
-    formData.append("Country", document.querySelector("#Country").value);
-    
+    var salutation = $('#inputSalutation').val();
+    var firstName = $('#inputFirstName').val();
+    var lastName = $('#inputLastName').val();
+    var email = $('#inputEmail').val();
+    var username = $('#inputUserName').val();
+    var password = $('#inputPassword').val();
+    var streetAddress = $('#inputStreetAdress').val();
+    var streetNumber = $('#inputStreetNumber').val();
+    var city = $('#inputCity').val();
+    var postalCode = $('#inputPostalCode').val();
+    var country = $('#inputCountry').val();
 
+    // Prepare the data to be sent in the request body
+    var user = {
+      salutation: salutation,
+      firstname: firstName,
+      lastname: lastName,
+      email: email,
+      username: username,
+      password: password,
+      streetadress: streetAddress,
+      streetnumber: streetNumber,
+      city: city,
+      postalcode: postalCode,
+      country: country,
+      admin: false
+    };
+    console.log(user)
+    // Send the AJAX request
     $.ajax({
-        url: 'http://localhost:8080/user',   
-        method: 'post',
-        dataType: 'json',
-        contentType: 'application/json',
-        data: JSON.stringify ({
+      url: 'http://localhost:8080/user/createUser', // Replace with the actual API endpoint URL
+      type: 'POST',
+      dataType: 'json',
+      data: JSON.stringify(user),
+      contentType: 'application/json',
+      success: function (response) {
+        // Handle the success response
+        console.log('User created successfully');
 
-            first_name: document.querySelector("#inputFirstName").value,
-            last_name: document.querySelector("#inputLastName").value,
-            email: document.querySelector("#inputEmail").value,
-            password: document.querySelector("#inputPassword").value,
-            street_adress: document.querySelector("#inputStreetAdress").value,
-            street_number: document.querySelector("#StreetNumber").value,
-            city: document.querySelector("#City").value,
-            postal_code: document.querySelector("#PostalCode").value,
-            country: document.querySelector("#Country").value
-            
-        }), 
-        success: function (response){console.log("Registration successful")},
-        error: function (error){console.log(error)}
+        $.post({
+          url: "http://localhost:8080/login",
+          contentType: "application/json",
+          headers: { "Authorization": sessionStorage.getItem("token") },
+          data: JSON.stringify(user),
+          success: function(data) {
+            var timestamp = new Date().toISOString(); // Aktuellen Zeitpunkt erfassen
+            sessionStorage.setItem("token", data);
+            sessionStorage.setItem("loginTimestamp", timestamp); // Timestamp speichern
+            location.href = "index.html";
+            console.log("Eingeloggt");
+          },
+          error: console.error
+        });
+      },
+      error: function (error) {
+        // Handle the error response
+        console.log('An error occurred');
+        // Add your code to handle the error case
+      }
     });
+  });
 });
+

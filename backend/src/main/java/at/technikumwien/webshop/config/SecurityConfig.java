@@ -4,6 +4,7 @@ import at.technikumwien.webshop.security.AuthenticationFilter;
 import at.technikumwien.webshop.service.TokenService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -41,7 +42,10 @@ public class SecurityConfig {
                     .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                     .and()
                     // Allow unauthorized requests to certain endpoints
-                    .authorizeHttpRequests().requestMatchers("/login", "/products/ring", "/products/bracelet","/products/others","/products/earring", "/products").permitAll()
+                    .authorizeHttpRequests()
+                    .requestMatchers(HttpMethod.POST, "/products/create").hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.POST, "/user/createUser").permitAll()
+                    .requestMatchers("/login", "/products/ring", "/products/bracelet","/products/others","/products/earring", "/products").permitAll()
                     // Authenticate all other requests
                     .anyRequest().authenticated()
                     .and()

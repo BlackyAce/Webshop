@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overlay</title>
+
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+  <!-- Bootstrap JS-->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!--CSS-->
+  <link rel="stylesheet" href="/frontend/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+          aria-controls="offcanvasDarkNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <button id="loginButtonOverlay" type="button" class="btn btn-outline-secondary ms-3" data-bs-toggle="modal"
+          data-bs-target="#navbarModal" style="color: #f3c5a6">
+          Login
+        </button>
+      </div>
+      <div class="text-center">
+        <h2 style="color: #f3c5a6;">Crystallized</h2>
+        <h4 class="d-none d-lg-block" style="color: #f3c5a6;">Crystallized ... More than just jewellery</h4>
+      </div>
+      <div>
+        <img src="/frontend/Image/Logo.png" class="rounded me-5" width="70" height="70">
+      </div>
+    </div>
+  </nav>
+
+  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+  aria-labelledby="offcanvasDarkNavbarLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+      aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+      <li class="nav-item">
+        <a class="nav-link active text-white" aria-current="page" href="/frontend/index.html">Home</a>
+      </li>
+      <li id="userMenue"></li>
+      <li class="nav-item">
+        <a class="nav-link active text-white" aria-current="page" href="/frontend/about us.html">About Us</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Products
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="/frontend/earrings.html">Earrings</a></li>
+          <li><a class="dropdown-item" href="/frontend/rings.html">Rings</a></li>
+          <li><a class="dropdown-item" href="/frontend/bracelet.html">Bracelets</a></li>
+          <li><a class="dropdown-item" href="/frontend/others.html">Others</a></li>
+        </ul>
+      </li>
+      <li id="user"></li>
+      <li id="admin"></li>
+
+
+      <li class="nav-item">
+        <a class="nav-link active text-white" aria-current="page" href="/frontend/registration.html">New here?
+          Click for registration</a>
+      </li>
+      <form class="d-flex mt-3" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn" style="background-color: #f3c5a6" type="submit">Search</button>
+      </form>
+    </ul>
+  </div>
+</div>
+
+
+  <!-- navbarModal -->
+  <div class="modal fade" id="navbarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-white">
+        <form>
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Regestration</h1>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <label for="usernameInput" class="form-label">Username:</label>
+            <input type="text" id="usernameInput" name="username" class="form-control" required><br>
+
+            <label for="passwordInput" class="form-label">Passwort:</label>
+            <input type="password" id="passwordInput" name="password" class="form-control" required><br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              <a href="/frontend/registration.html" class="text-decoration-none text-white text-sm">Registration</a>
+            </button>
+            <input type="button" id="loginButton" value="Login" class="btn btn-light ms-auto">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <nav class="navbar bg-dark fixed-bottom border-top">
+      <div class="container-fluid d-flex justify-content-around">
+        <a class="text-decoration-none" style="color: #f3c5a6" href="/frontend/help.html">Hilfe</a>
+        <a class="text-decoration-none" style="color: #f3c5a6" href="">©Crystallized</a>
+        <a class="text-decoration-none" style="color: #f3c5a6" href="/frontend/imprint.html">Impressum</a>
+      </div>
+    </nav>
+  </footer>
+</body>
+
+</html>

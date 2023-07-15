@@ -20,16 +20,12 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!--Overlay-Header-->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      fetch('layout.html')
-        .then(response => response.text())
-        .then(data => {
-          document.querySelector('overlay').innerHTML = data;
-        });
-    });
-  </script>
+  <script src="./scripts/loadOverlay.js" defer></script>
+  <script src="./scripts/login.js" defer></script>
+
+  <script src="/frontend/scripts/login.js" defer></script>
 </head>
+
 <body>
   <overlay>
   </overlay>
@@ -70,6 +66,14 @@
               <div class="form-group mt-2">
                 <label for="inputEmail">Email</label>
                 <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                <small class="error-message" id="emailError" style="display: none; color: red;">Email already taken.</small>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group mt-2">
+                <label for="inputUserName">User Name</label>
+                <input type="text" class="form-control" id="inputUserName" placeholder="Username">
+                <small class="error-message" id="usernameError" style="display: none; color: red;">Username already taken.</small>
               </div>
             </div>
             <div class="col">
@@ -89,7 +93,7 @@
             <div class="col-12 col-md-4">
               <div class="form-group mt-2">
                 <label for="StreetNumber">Street Number</label>
-                <input type="StreetNumber" class="form-control" id="StreetNumber" placeholder="Street Number">
+                <input type="StreetNumber" class="form-control" id="inputStreetNumber" placeholder="Street Number">
               </div>
             </div>
           </div>
@@ -97,19 +101,19 @@
             <div class="col-12 col-md-4">
               <div class="form-group mt-2">
                 <label for="City">City</label>
-                <input type="City" class="form-control" id="City" placeholder="City">
+                <input type="City" class="form-control" id="inputCity" placeholder="City">
               </div>
             </div>
             <div class="col-12 col-md-4">
               <div class="form-group mt-2">
                 <label for="PostalCode">Postal Code</label>
-                <input type="PostalCode" class="form-control" id="PostalCode" placeholder="Postal Code">
+                <input type="PostalCode" class="form-control" id="inputPostalCode" placeholder="Postal Code">
               </div>
             </div>
             <div class="col-12 col-md-4">
               <div class="form-group mt-2">
                 <label for="Country">Country</label>
-                <input type="Country" class="form-control" id="Country" placeholder="Country">
+                <input type="Country" class="form-control" id="inputCountry" placeholder="Country">
               </div>
             </div>
           </div>
@@ -118,15 +122,10 @@
               <button type="submit" class="btn bg-dark text-white mt-3">Registration</button>
             </div>
           </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
-  
-
-  <!--Anmelde Formular Ende-->
-
-  <!--NAVBAR-Bottom-->
-
 </body>
 
 </html>
