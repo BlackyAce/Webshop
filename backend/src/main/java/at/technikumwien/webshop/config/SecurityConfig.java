@@ -43,6 +43,7 @@ public class SecurityConfig {
                     .and()
                     // Allow unauthorized requests to certain endpoints
                     .authorizeHttpRequests()
+                    .requestMatchers(HttpMethod.POST, "/products/create").hasRole("ADMIN")
                     .requestMatchers(HttpMethod.POST, "/user/createUser").permitAll()
                     .requestMatchers("/login", "/products/ring", "/products/bracelet","/products/others","/products/earring", "/products").permitAll()
                     // Authenticate all other requests

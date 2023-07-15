@@ -1,6 +1,6 @@
 
-$(document).ready(function() {
-  $('#createUser-form').submit(function(e) {
+$(document).ready(function () {
+  $('#createUser-form').submit(function (e) {
     e.preventDefault();
 
     var salutation = $('#inputSalutation').val();
@@ -30,20 +30,34 @@ $(document).ready(function() {
       country: country,
       admin: false
     };
-console.log(user)
+    console.log(user)
     // Send the AJAX request
     $.ajax({
-      url: '/user/createUser', // Replace with the actual API endpoint URL
+      url: 'http://localhost:8080/user/createUser', // Replace with the actual API endpoint URL
       type: 'POST',
       dataType: 'json',
       data: JSON.stringify(user),
       contentType: 'application/json',
-      success: function(response) {
+      success: function (response) {
         // Handle the success response
         console.log('User created successfully');
-        // Add your code to handle the success case
+
+        $.post({
+          url: "http://localhost:8080/login",
+          contentType: "application/json",
+          headers: { "Authorization": sessionStorage.getItem("token") },
+          data: JSON.stringify(user),
+          success: function(data) {
+            var timestamp = new Date().toISOString(); // Aktuellen Zeitpunkt erfassen
+            sessionStorage.setItem("token", data);
+            sessionStorage.setItem("loginTimestamp", timestamp); // Timestamp speichern
+            location.href = "index.html";
+            console.log("Eingeloggt");
+          },
+          error: console.error
+        });
       },
-      error: function(error) {
+      error: function (error) {
         // Handle the error response
         console.log('An error occurred');
         // Add your code to handle the error case

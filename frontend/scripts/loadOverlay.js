@@ -37,30 +37,20 @@ document.addEventListener('DOMContentLoaded', function () {
             adminLink.innerHTML = "<a class='nav-link dropdown-toggle text-white' role='button' data-bs-toggle='dropdown' aria-expanded='false'>Admin</a><ul class='dropdown-menu dropdown-menu-dark'><li><a class='dropdown-item' href='/frontend/admin.html'>Create new product</a></li><li><a class='dropdown-item' href='/frontend/UserList.html'>User List</a></li><li><a class='dropdown-item' href='/frontend/ItemList.html'>Product List</a></li><li><a class='dropdown-item' href='/frontend/others.html'>Others</a></li></ul>";
           }
         }
-       
+        if (window.sessionStorage.getItem("token") !== null) {
+          let userLink = document.getElementById('user');
+          if (userLink) {
+            userLink.href = 'userProfile.html';
+            userLink.innerHTML = "<a class='nav-link dropdown-toggle text-white' role='button' data-bs-toggle='dropdown' aria-expanded='false'>Profile</a><ul class='dropdown-menu dropdown-menu-dark'><li><a class='dropdown-item' href='/frontend/eintrag.html'>EWintrag</a></li><li><a class='dropdown-item' href='/frontend/eintrag.html'>Eintrag</a></li><li><a class='dropdown-item' href='/frontend/eintrag.html'>Eintrag</a></li><li><a class='dropdown-item' href='/frontend/eintrag.html'>Eintrag</a></li></ul>";
+          }
+        };
+
         replaceButtons(loginButton, logoutButton); // Funktion zum Austausch der Buttons aufrufen
       } else {
         console.log('Das Element mit der ID "loginButtonOverlay" wurde nicht gefunden.');
       }
-      var userMenue = document.getElementById('userMenue');
-      if (userMenue && window.sessionStorage.getItem('token') !== null) {
-        var container = document.createElement('a');
-        adminLink.href = 'admin.html';
-        adminLink.innerHTML = "<a class='nav-link dropdown-toggle text-white' role='button' data-bs-toggle='dropdown' aria-expanded='false'>Admin</a><ul class='dropdown-menu dropdown-menu-dark'><li><a class='dropdown-item' href='/frontend/admin.html'>Create new product</a></li><li><a class='dropdown-item' href='/frontend/UserList.html'>User List</a></li><li><a class='dropdown-item' href='/frontend/ItemList.html'>Product List</a></li><li><a class='dropdown-item' href='/frontend/others.html'>Others</a></li></ul>";
-        userMenue.parentNode.insertBefore(container, userMenue.nextSibling);
-      } 
-      
-
-    
-})});
-// var isUser = checkUserStatus();
-// if (isUser) {
-//   var userLink = document.getElementById('User');
-//   if (userLink) {
-//     userLink.href = 'index.html';
-//     userLink.innerHTML = "<a class='nav-link dropdown-toggle text-white' role='button' data-bs-toggle='dropdown' aria-expanded='false'>Profile</a><ul class='dropdown-menu dropdown-menu-dark'><li><a class='dropdown-item' href='/frontend/admin.html'>Create new product</a></li><li><a class='dropdown-item' href='/frontend/UserList.html'>User List</a></li><li><a class='dropdown-item' href='/frontend/ItemList.html'>Product List</a></li><li><a class='dropdown-item' href='/frontend/others.html'>Others</a></li></ul>";
-//   }
-// }
+    })
+});
 
 function replaceButtons(loginButton, logoutButton) {
   if (window.sessionStorage.getItem("token") !== null) {
@@ -74,4 +64,6 @@ function replaceButtons(loginButton, logoutButton) {
     console.log('Token nicht vorhanden, Login-Button wird angezeigt');
   }
 }
+
+
 
