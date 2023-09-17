@@ -45,7 +45,7 @@ public class ProductController {
         return service.findByType(type);
     }
 
-    @PostMapping
+    @PostMapping("/create")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Product> createProduct(@RequestBody @Valid ProductDTO productDTO) {
         Product product = service.save(fromDTO(productDTO));

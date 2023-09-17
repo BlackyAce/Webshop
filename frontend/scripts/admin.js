@@ -1,31 +1,42 @@
-document.getElementById("createProduct-form").addEventListener("submit", function(event){
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+    const formCreateProduct = document.getElementById('createProduct-form');
 
-    const formData = new FormData();
-    formData.append("inputProductTitel", document.querySelector("#inputProductTitel").value);
-    formData.append("inputProductDescription", document.querySelector("#inputProductDescription").value);
-    formData.append("inputProductPrice", document.querySelector("#inputProductPrice").value);
-    formData.append("inputProductQuantity", document.querySelector("#inputProductQuantity").value);
-    formData.append("inputProductType", document.querySelector("#inputProductType").value);
-    formData.append("inputProductFile", document.querySelector("#inputProductFile").files[0]);
-    
+    formCreateProduct.addEventListener('submit', function (event) {
+        event.preventDefault();
 
-    $.ajax ( {
-        url: 'http://localhost:8080/products',
-        method: 'post',
-        dataType: 'json',
-        contentType: 'application/json',
-        data: JSON.stringify ({
-            name: document.querySelector("#inputProductTitel").value,
-            description: document.querySelector("#inputProductDescription").value,
-            price: document.querySelector("#inputProductPrice").value,
-            quantity: document.querySelector("#inputProductQuantity").value,
-            type: document.querySelector("#inputProductType").value,
-            imageUrl: document.querySelector("#inputProductFile").value,
-            
-        }), 
-        success: function (response){console.log("Product added")},
-        error: function (error){console.log(error)}
+        const productName = document.getElementById('inputProductTitel').value;
+        const productDescription = document.getElementById('inputProductDescription').value;
+        const productQuantity = document.getElementById('inputProductQuantity').value;
+        const productType = document.getElementById('inputProductType').value;
+        const productPrice = document.getElementById('inputProductPrice').value;
+
+
+        const product = {
+            name: productName,
+            description: productDescription,
+            quantity: productQuantity,
+            type: productType,
+            price: productPrice,
+            file: true,
+            active: false
+        };
+
+        console.log(product);
+
+        $.ajax({
+            url: 'http://localhost:8080/products/create',
+            type: 'POST',
+            contentType: 'application/json',
+            headers: { "Authorization": sessionStorage.getItem("token") },
+            data: JSON.stringify(product),
+            success: function (response) {
+                console.log('Daten erfolgreich gesendet:', response);
+                alert('Daten erfolgreich gesendet!');
+                location.reload();
+            },
+            error: function (xhr, status, error) {
+                console.error('Fehler beim Senden der Daten:', error);
+            }
+        });
     });
 });
-
