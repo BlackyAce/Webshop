@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="/frontend/style.css">
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+  <!-- Bootstrap JS-->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!--CSS-->
+  <link rel="stylesheet" href="/frontend/style.css">
+
+
+  <nav class="navbar bg-dark fixed-top">
+    <div class="container">
+      <!--Container für die Linke Seite-->
+      <div class="w-25">
+        <button class="navbar-toggler navbar-button custom-toggler me-3" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon navbar-light"></span>
+        </button>
+        <button type="button" class="btn btn-outline-secondary navbar-button me-1 my-1" style="color: #f3c5a6"
+          data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Login</button>
+      </div>
+      <!--Container für die Mitte-->
+      <div>
+        <h2 class="text-center" style="color: #f3c5a6;">Crystallized</h2>
+        <h4 class="text-center d-none d-lg-block" style="color: #f3c5a6;">Crystallized ... More than just jewellery</h4>
+      </div>
+      <!--Container für die Rechte Seite-->
+      <div style="display: flex;">
+        <div class="w-25 text-end ">
+          <a href="/frontend/index.html">
+            <img src="/frontend/Image/Logo.png" class="rounded me-10" width="70" height="70">
+          </a>
+        </div>
+      </div>
+      <div style="display: flex;">
+        <div class="text-center d-none d-lg-block">
+          <a href="/frontend/shoppingcart.html">
+            <img src="/frontend/Image/Shopping_72.png" class="rounded me-10" width="30" height="30">
+          </a>
+        </div>
+      </div>
+
+
+
+      <!--Offcanvas-->
+      <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+        aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="/frontend/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="/frontend/about us.html">About Us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Products
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="/frontend/earrings.html">Earrings</a></li>
+                <li><a class="dropdown-item" href="/frontend/rings.html">Rings</a></li>
+                <li><a class="dropdown-item" href="/frontend/bracelet.html">Bracelets</a></li>
+                <li><a class="dropdown-item" href="/frontend/others.html">Others</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Admin
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="/frontend/admin.html">Create new product</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="/frontend/registration.html">New here?
+                Click for registration</a>
+            </li>
+            <form class="d-flex mt-3" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn" style="background-color: #f3c5a6" type="submit">Search</button>
+            </form>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!--Anmeldung PopUp-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-white">
+        <form>
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">FrogWebshop</h1>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <label for="usernameInput" class="form-label">Benutzername:</label>
+            <input type="text" id="usernameInput" name="username" class="form-control" required><br>
+
+            <label for="passwordInput" class="form-label">Passwort:</label>
+            <input type="password" id="passwordInput" name="password" class="form-control" required><br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              <a href="/frontend/register.html" class="text-decoration-none text-white text-sm">Registrieren</a>
+            </button>
+            <input type="button" id="loginButton" value="Anmelden" class="btn btn-light ms-auto">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--NAVBAR-Bottom-->
+  <nav class="navbar bg-dark fixed-bottom">
+    <div class="container-fluid d-flex justify-content-around">
+      <a class="text-decoration-none" style="color: #f3c5a6" href="/frontend/help.html">Help</a>
+      <a class="text-decoration-none d-none d-lg-block" style="color: #f3c5a6">©CopyrightCrystallized</a>
+      <a class="text-decoration-none" style="color: #f3c5a6" href="/frontend/imprint.html">Imprint</a>
+    </div>
+    </footer>
+
+    </body>
+
+
+
+</html>
