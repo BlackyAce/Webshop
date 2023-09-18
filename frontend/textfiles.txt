@@ -1,24 +1,38 @@
-#RINGS
+/*RINGS*/
 INSERT INTO `product`(`id`, `active`, `description`, `image_url`, `name`, `price`, `quantity`, `type`) 
-VALUES (1,true,'beistpiel Text','/Image/GoldRinge.jpg','GoldRings',12.99,10,'ring');
+VALUES (1,true,'beistpiel Text',1,'GoldRings',12.99,10,'ring');
+
+INSERT INTO `file`(`id`, `path`) VALUES (1,'GoldRinge.jpg');
 
 INSERT INTO `product`(`id`, `active`, `description`, `image_url`, `name`, `price`, `quantity`, `type`) 
-VALUES (2,true,'beistpiel Text','/Image/Ring2.jpg','SilverRings',12.99,10,'ring');
+VALUES (2,true,'beistpiel Text',2,'SilverRings',12.99,10,'ring');
 
-#EARRINGS
-INSERT INTO `product`(`id`, `active`, `description`, `image_url`, `name`, `price`, `quantity`, `type`) 
-VALUES (3,true,'beistpiel Text','/Image/HolzOhrringe.jpg','WoodEaring',12.99,10,'earring');
+INSERT INTO `file`(`id`, `path`) VALUES (2,'Ring2.jpg');
 
+/*EARRINGS*/
 INSERT INTO `product`(`id`, `active`, `description`, `image_url`, `name`, `price`, `quantity`, `type`) 
-VALUES (4,true,'beistpiel Text','/Image/OhrringeFeder.jpg','FeatherEarrings',12.99,10,'earring');
+VALUES (3,true,'beistpiel Text',3,'WoodEaring',12.99,10,'earring');
 
-#BRACELETS 
-INSERT INTO `product`(`id`, `active`, `description`, `image_url`, `name`, `price`, `quantity`, `type`) 
-VALUES (5,true,'beistpiel Text','/Image/ArmbandBraun.jpg','BrownBracelets',12.99,10,'bracelet');
+INSERT INTO `file`(`id`, `path`) VALUES (3,'HolzOhrringe.jpg');
 
 INSERT INTO `product`(`id`, `active`, `description`, `image_url`, `name`, `price`, `quantity`, `type`) 
-VALUES (6,true,'beistpiel Text','/Image/OhrringeArmbänder.jpg','ColorBracelets',12.99,10,'bracelet');
+VALUES (4,true,'beistpiel Text',4,'FeatherEarrings',12.99,10,'earring');
 
-#OTHERS
+INSERT INTO `file`(`id`, `path`) VALUES (4,'OhrringeFeder.jpg');
+
+/*BRACELETS*/
 INSERT INTO `product`(`id`, `active`, `description`, `image_url`, `name`, `price`, `quantity`, `type`) 
-VALUES (7,true,'beistpiel Text','/Image/Baum.jpg','Tree',12.99,10,'others');
+VALUES (5,true,'beistpiel Text',5,'BrownBracelets',12.99,10,'bracelet');
+
+INSERT INTO `file`(`id`, `path`) VALUES (5,'ArmbandBraun.jpg');
+
+INSERT INTO `product`(`id`, `active`, `description`, `image_url`, `name`, `price`, `quantity`, `type`) 
+VALUES (6,true,'beistpiel Text',6,'ColorBracelets',12.99,10,'bracelet');
+
+INSERT INTO `file`(`id`, `path`) VALUES (6,'OhrringeArmbänder.jpg');
+
+/*OTHERS*/
+INSERT INTO `product`(`id`, `active`, `description`, `image_url`, `name`, `price`, `quantity`, `type`) 
+VALUES (7,true,'beistpiel Text',7,'Tree',12.99,10,'others');
+
+INSERT INTO `file`(`id`, `path`) VALUES (7,'Baum.jpg');
