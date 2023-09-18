@@ -15,7 +15,7 @@
   <!-- Eigene Stylesheet-Datei -->
   <link rel="stylesheet" href="style.css">
   <!-- Eigene JavaScript-Datei -->
-  <script src="/frontend/scripts/admin.js" defer></script>
+  <script src="/frontend/scripts/itemList.js" defer></script>
 
   <!-- jQuery Bibliothek -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -32,7 +32,7 @@
     <div class="col-10 col-lg-7 col-xxl-4 border p-3">
       <div class="container">
         <div class="row mb-3">
-          <div class="container">
+          <div class="container" id="productListContainer">
             <h1>Product List</h1>
             <table class="table table-striped">
               <thead>
@@ -43,12 +43,62 @@
                   <th>Quantity</th>
                   <th>Type</th>
                   <th>Price</th>
+                  <th>Active</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody id="productTableBody">
                 <!-- Dynamically add products here -->
               </tbody>
             </table>
+          </div>
+          <div class="container" id="productEditContainer" style="display: none;">
+            <div class="row">
+              <div class="col">
+                <h1>Edit Product</h1> 
+              </div>
+              <div class="col-auto"></div>
+              <div class="col d-flex align-items-start justify-content-end">
+                <button type="button" class="btns" id="cancelEditButton">&times;</button>
+              </div>
+            </div>
+            <form id="editProductForm">
+              <input type="hidden" id="editProductId">
+              <div class="mb-3">
+                <label for="editProductName" class="form-label">Product Title</label>
+                <input type="text" class="form-control" id="editProductName">
+              </div>
+              <div class="mb-3">
+                <label for="editProductDescription" class="form-label">Product Description</label>
+                <textarea class="form-control" id="editProductDescription"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="editProductQuantity" class="form-label">Quantity</label>
+                <input type="number" class="form-control" id="editProductQuantity">
+              </div>
+              <div class="mb-3">
+                <label for="editProductType" class="form-label">Type</label>
+                <input type="text" class="form-control" id="editProductType">
+              </div>
+              <div class="mb-3">
+                <label for="editProductPrice" class="form-label">Price</label>
+                <input type="number" class="form-control" id="editProductPrice">
+              </div>
+              <div class="mb-3">
+                <label for="editProductActive" class="form-check-label">Active</label>
+                <input type="checkbox" class="form-check-input" id="editProductActive">
+              </div>
+              <div class="row">
+                <div class="col">
+                  <button type="button" class="btn btn-primary" id="deleteEditButton">Delete</button>
+                </div>
+                <div class="col d-flex align-items-start justify-content-end">
+                  <button type="button" class="btn btn-primary" id="saveEditButton">Save</button>
+                </div>
+              </div>
+              
+
+            </form>
           </div>
         </div>
       </div>

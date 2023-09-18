@@ -41,13 +41,14 @@ public class Product {
     // Init
     // /////////////////////////////////////////////////////////////////////////
 
-    public Product(String name, String description, String imageUrl, double price, int quantity, String type) {
+    public Product(String name, String description, String imageUrl, double price, int quantity, String type, boolean active) {
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
         this.price = price;
         this.quantity = quantity;
         this.type = type;
+        this.active = active;
     }
 
     public Product() {
