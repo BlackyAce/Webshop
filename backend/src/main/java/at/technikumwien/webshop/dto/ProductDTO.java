@@ -27,6 +27,7 @@ public class ProductDTO {
     private int quantity;
 
     private String type;
+    
     private boolean active;
 
 
