@@ -36,3 +36,10 @@ INSERT INTO `product`(`id`, `active`, `description`, `image_url`, `name`, `price
 VALUES (7,true,'beistpiel Text',7,'Tree',12.99,10,'others');
 
 INSERT INTO `file`(`id`, `path`) VALUES (7,'Baum.jpg');
+
+
+
+/*ADMIN*/
+
+INSERT INTO `user`(`id`, `admin`, `city`, `country`, `email`, `firstname`, `lastname`, `password`, `postalcode`, `salutation`, `streetadress`, `streetnumber`, `username`) 
+VALUES (1,1,'','','','','','$2a$10$SYLic79xg3U4qiXwJAOQtuTIQxE8.rO.cC6uFmVsvk5Jtyo0ZXXQC','','','','','admin')
