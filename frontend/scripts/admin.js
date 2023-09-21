@@ -42,9 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         active: false
                     };
 
-                    
-
-
                     $.ajax({
                         url: 'http://localhost:8080/products/create',
                         type: 'POST',

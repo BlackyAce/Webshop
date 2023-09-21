@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -44,8 +45,9 @@ public class ProductController {
     }
 
     @GetMapping("/active")
-    public List<Product> findAllActiveProducts() {
-        return productService.findAllActive();
+    public List<Product> findAllActiveProducts(@RequestParam(name = "type", required = false)String type) {
+        List<Product> activeFilteredProducts = productService.findFilteredActiveProducts(type);
+        return activeFilteredProducts;
     }
 
     @GetMapping("/{type}")
@@ -63,7 +65,6 @@ public class ProductController {
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id, @PathVariable String imageUrl) {
-        System.out.print("test");
         productService.deleteProduct(id, imageUrl);
         return ResponseEntity.noContent().build();
     }

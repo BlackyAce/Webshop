@@ -1,5 +1,6 @@
 package at.technikumwien.webshop.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,8 +35,18 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public List<Product> findAllActive() {
-        return productRepository.findByActive(true);
+    public List<Product> findFilteredActiveProducts(String type) {
+        List<Product> activeFilteredProducts = new ArrayList<>();
+        List<Product> allActiveProducts = productRepository.findByActive(true);
+        if (type == null) {
+            return allActiveProducts;
+        }
+        for (Product product : allActiveProducts) {
+            if (product.getType().equals(type)) {
+                activeFilteredProducts.add(product);
+            }
+        }
+        return activeFilteredProducts;
     }
 
     public Optional<Product> findById(Long id) {
@@ -50,23 +61,11 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public Product setActive(Long id) {
-        var product = productRepository.findById(id);
-
-        if (product.isEmpty()) {
-            throw new EntityNotFoundException();
-        }
-
-        Product p = product.get();
-        p.setActive(true);
-        return save(p);
-    }
-
     public void deleteProduct(long id, String imageUrl) {
         productRepository.deleteById(id);
         Long imageId = Long.parseLong(imageUrl);
         fileRepository.deleteById(imageId);
-        
+
     }
 
     public Product updateProductFromDTO(Product existingProduct, ProductDTO productDTO) {
