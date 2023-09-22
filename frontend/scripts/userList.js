@@ -14,36 +14,47 @@ $(document).ready(function() {
       const userTableBody = $('#userTableBody');
   
       users.forEach(function(user) {
-        const row = $('<tr>');
-        row.append($('<td>').text(user.id));
-        row.append($('<td>').text(user.username));
-        row.append($('<td>').text(user.email));
-        row.append($('<td>').text(user.admin ? 'Yes' : 'No'));
+        const row = $("<tr>");
+        row.append($("<td>").text(user.id));
+        row.append($("<td>").text(user.name));
+        row.append($("<td>").text(user.email));
+        row.append($("<td>").text(user.admin ? 'Yes' : 'No'));
         const editButton = $("<td><button id='editButton'>Edit</button></td>");
       editButton.click(function () {
-        displayUserForEditing(product);
+        displayUserForEditing(user);
       });
       row.append(editButton);
         userTableBody.append(row);
       });
     }
   });
+
+
   function displayUserForEditing(user) {
     let userId = user.id;
-   
-    let userListContainer = document.getUserById("userListContainer");
-    let userEditContainer = document.getUserById("userEditContainer");
+    let userListContainer = document.getElementById("userListContainer");
+    let userEditContainer = document.getElementById("userEditContainer");
   
     userListContainer.style.display = "none";
-    userEditContainer.style.display = "block";
+    userEditContainer.style.display = "block"
   
     $("#editUserId").val(userId);
     $("#editUserName").val(user.name);
-    $("#editUserDescription").val(user.description);
+    $("#editUserFirstName").val(user.firstname);
+    $("#editUserLastName").val(user.lastname);
+    $("#editUserEmail").val(user.email);
+    $("#editUserStreetAdress").val(user.name);
+    $("#editUserStreetNumber").val(user.streetnumber);
+    $("#editUserCity").val(user.city);
+    $("#editUserPostalCode").val(user.postalcode);
+    $("#editUserContry").val(user.contry);
+
+
+
     $("#editUserActive").prop("checked", user.active);
   
     document.getElementById("deleteEditButton").addEventListener("click", function () {
-        deleteProduct(userId);
+        deleteUser(userId);
     });
   
   }
@@ -52,10 +63,10 @@ $(document).ready(function() {
     $("#userListContainer").show();
   });
   
-  function deleteUser(userId, ) {
+  function deleteUser(userId ) {
     if (confirm("Are you sure you want to delete this product?")) {
       $.ajax({
-        url: "http://localhost:8080/products/" + userId,
+        url: "http://localhost:8080/users/" + userId,
         method: "DELETE",
         headers: { "Authorization": sessionStorage.getItem("token") },
         success: function (response) {

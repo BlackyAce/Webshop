@@ -48,8 +48,8 @@ public class SecurityConfig {
                     .requestMatchers(HttpMethod.POST, "/products/create", "/files", "/products").hasRole("ADMIN")
                     .requestMatchers(HttpMethod.DELETE, "/products/**").hasRole("ADMIN")
                     .requestMatchers(HttpMethod.POST, "/user/createUser").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/files/**", "/products/active").permitAll()
-                    .requestMatchers("/login", "/products/ring", "/products/bracelet","/products/others","/products/earring").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/files/**", "/products/active", "/products/active/**").permitAll()
+                    .requestMatchers("/login").permitAll()
                     // Authenticate all other requests
                     .anyRequest().authenticated()
                     .and()
