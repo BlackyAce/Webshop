@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>User Lis</title>
+    <title>User List</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,115 +27,120 @@
 <body>
     <overlay></overlay>
     <!--Overlay-Header-Ende-->
-    <div class="row justify-content-center">
-        <div class="col-10 col-lg-7 col-xxl-4 border p-3">
-            <div class="container">
-                <div class="row mb-3">
-                    <div class="container">
-                        <h1>User List</h1>
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Benutzername</th>
-                                    <th>E-Mail</th>
-                                    <th>Admin</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody id="userTableBody"></tbody>
-                        </table>
-
-                        <div class="container" id="userFormContainer">
-
-                            <h2>Edit User</h2>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10 col-lg-7 col-xxl-4 border p-3">
+                <div class="container">
+                    <div class="row mb-3">
+                        <div class="container" id="userListContainer">
+                            <h1>User List</h1>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Benutzername</th>
+                                        <th>E-Mail</th>
+                                        <th>Admin</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="userTableBody"></tbody>
+                            </table>
+                        </div>
+                        <div class="container" id="userEditContainer" style="display: none;">
+                            <div class="row">
+                                <div class="col">
+                                    <h2>Edit User</h2>
+                                </div>
+                                <div class="col-auto"></div>
+                                <div class="col d-flex align-items-start justify-content-end">
+                                    <button type="button" class="btns" id="cancelEditButton">&times;</button>
+                                </div>
+                            </div>
                             <form id="editUserForm">
-                                <input type="hidden" id="editUserId" name="userId">
+                                <input type="hidden" id="editUserId">
                                 <div class="col">
                                     <div class="form-group mt-2">
-                                        <label for="inputFirstName">First name</label>
-                                        <input type="text" class="form-control" id="inputFirstName"
-                                            placeholder="First name">
+                                        <label for="editFirstName" class="form-label">First name</label>
+                                        <input type="text" class="form-control" id="editFirstName">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mt-2">
-                                        <label for="inputLastName">Last name</label>
-                                        <input type="text" class="form-control" id="inputLastName"
-                                            placeholder="Last name">
+                                        <label for="editLastName" class="form-label">Last name</label>
+                                        <input type="text" class="form-control" id="editLastName">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mt-2">
-                                        <label for="inputEmail">Email</label>
-                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-
+                                        <label for="editEmail" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="editEmail">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mt-2">
-                                        <label for="inputUserName">User Name</label>
-                                        <input type="text" class="form-control" id="inputUserName"
-                                            placeholder="Username">
-
+                                        <label for="editUserName" class="form-label">User Name</label>
+                                        <input type="text" class="form-control" id="editUserName">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mt-2">
-                                        <label for="inputPassword">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword"
-                                            placeholder="Password">
+                                        <label for="editPassword" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="editPassword">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-md-8">
                                         <div class="form-group mt-2">
-                                            <label for="inputStreetAdress">Street Adress</label>
-                                            <input type="StreetAdress" class="form-control" id="inputStreetAdress"
-                                                placeholder="Street Adress">
+                                            <label for="editStreetAdress" class="form-label">Street Adress</label>
+                                            <input type="StreetAdress" class="form-control" id="editStreetAdress">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">
                                         <div class="form-group mt-2">
-                                            <label for="StreetNumber">Street Number</label>
-                                            <input type="StreetNumber" class="form-control" id="inputStreetNumber"
-                                                placeholder="Street Number">
+                                            <label for="editStreetNumber" class="form-label">Street Number</label>
+                                            <input type="StreetNumber" class="form-control" id="editStreetNumber">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-md-4">
                                         <div class="form-group mt-2">
-                                            <label for="City">City</label>
-                                            <input type="City" class="form-control" id="inputCity" placeholder="City">
+                                            <label for="editCity" class="form-label">City</label>
+                                            <input type="City" class="form-control" id="editCity">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">
                                         <div class="form-group mt-2">
-                                            <label for="PostalCode">Postal Code</label>
-                                            <input type="PostalCode" class="form-control" id="inputPostalCode"
-                                                placeholder="Postal Code">
+                                            <label for="editPostalCode" class="form-label">Postal Code</label>
+                                            <input type="PostalCode" class="form-control" id="editPostalCode">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">
                                         <div class="form-group mt-2">
-                                            <label for="Country">Country</label>
-                                            <input type="Country" class="form-control" id="inputCountry"
-                                                placeholder="Country">
+                                            <label for="editCountry" class="form-label">Country</label>
+                                            <input type="Country" class="form-control" id="editCountry">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="admin" class="form-label">Admin</label>
+                                    <label for="admin" class="form-label" class="form-label">Admin</label>
                                     <select class="form-select" id="admin" name="admin">
                                         <option value="true">Yes</option>
                                         <option value="false">No</option>
                                     </select>
                                 </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary"
+                                            id="deleteEditButton">Delete</button>
+                                    </div>
+                                    <div class="col d-flex align-items-start justify-content-end">
+                                        <button type="button" class="btn btn-primary" id="saveEditButton">Save</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <button type="button" class="btn btn-primary" id="saveButton">Save</button>
-                        <button type="button" class="btn btn-secondary" id="cancelButton">Cancel</button>
-                        </form>
                     </div>
                 </div>
             </div>
