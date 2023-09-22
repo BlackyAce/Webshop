@@ -2,26 +2,26 @@
 <html lang="en">
 
 <head>
-  <title>User Lis</title>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Lis</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!--Bootstrap CSS-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-  <!-- Bootstrap JS-->
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <!-- Bootstrap JS-->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!--Eigenen Files-->
-  <link rel="stylesheet" href="style.css">
-  <script src="/frontend/scripts/userList.js" defer></script>
+    <!--Eigenen Files-->
+    <link rel="stylesheet" href="style.css">
+    <script src="/frontend/scripts/userList.js" defer></script>
 
-  <!--Jquery Datenbank-->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Jquery Datenbank-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!--Overlay-Header-->
-  <script src="./scripts/loadOverlay.js" defer></script>
-  <script src="./scripts/login.js" defer></script>
+    <!--Overlay-Header-->
+    <script src="./scripts/loadOverlay.js" defer></script>
+    <script src="./scripts/login.js" defer></script>
 </head>
 
 <body>
@@ -29,48 +29,119 @@
     <!--Overlay-Header-Ende-->
     <div class="row justify-content-center">
         <div class="col-10 col-lg-7 col-xxl-4 border p-3">
-          <div class="container">
-              <div class="row mb-3">
-                <div class="container">
-                    <h1>User List</h1>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Benutzername</th>
-                                <th>E-Mail</th>
-                                <th>Admin</th>
-                            </tr>
-                        </thead>
-                        <tbody id="userTableBody"></tbody>
-                    </table>
-                
-                    <div id="userFormContainer" style="display: none;">
-                        <h2>Edit User</h2>
-                        <form id="userForm">
-                            <input type="hidden" id="userId" name="userId">
-                
-                            <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="username" readonly>
-                            </div>
-                
-                            <div class="mb-3">
-                                <label for="admin" class="form-label">Admin</label>
-                                <select class="form-select" id="admin" name="admin">
-                                    <option value="true">Yes</option>
-                                    <option value="false">No</option>
-                                </select>
-                            </div>
-                
-                            <button type="button" class="btn btn-primary" id="saveButton">Save</button>
-                            <button type="button" class="btn btn-secondary" id="cancelButton">Cancel</button>
+            <div class="container">
+                <div class="row mb-3">
+                    <div class="container">
+                        <h1>User List</h1>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Benutzername</th>
+                                    <th>E-Mail</th>
+                                    <th>Admin</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="userTableBody"></tbody>
+                        </table>
+
+                        <div class="container" id="userFormContainer">
+
+                            <h2>Edit User</h2>
+                            <form id="editUserForm">
+                                <input type="hidden" id="editUserId" name="userId">
+                                <div class="col">
+                                    <div class="form-group mt-2">
+                                        <label for="inputFirstName">First name</label>
+                                        <input type="text" class="form-control" id="inputFirstName"
+                                            placeholder="First name">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group mt-2">
+                                        <label for="inputLastName">Last name</label>
+                                        <input type="text" class="form-control" id="inputLastName"
+                                            placeholder="Last name">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group mt-2">
+                                        <label for="inputEmail">Email</label>
+                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group mt-2">
+                                        <label for="inputUserName">User Name</label>
+                                        <input type="text" class="form-control" id="inputUserName"
+                                            placeholder="Username">
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group mt-2">
+                                        <label for="inputPassword">Password</label>
+                                        <input type="password" class="form-control" id="inputPassword"
+                                            placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-8">
+                                        <div class="form-group mt-2">
+                                            <label for="inputStreetAdress">Street Adress</label>
+                                            <input type="StreetAdress" class="form-control" id="inputStreetAdress"
+                                                placeholder="Street Adress">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group mt-2">
+                                            <label for="StreetNumber">Street Number</label>
+                                            <input type="StreetNumber" class="form-control" id="inputStreetNumber"
+                                                placeholder="Street Number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group mt-2">
+                                            <label for="City">City</label>
+                                            <input type="City" class="form-control" id="inputCity" placeholder="City">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group mt-2">
+                                            <label for="PostalCode">Postal Code</label>
+                                            <input type="PostalCode" class="form-control" id="inputPostalCode"
+                                                placeholder="Postal Code">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group mt-2">
+                                            <label for="Country">Country</label>
+                                            <input type="Country" class="form-control" id="inputCountry"
+                                                placeholder="Country">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="admin" class="form-label">Admin</label>
+                                    <select class="form-select" id="admin" name="admin">
+                                        <option value="true">Yes</option>
+                                        <option value="false">No</option>
+                                    </select>
+                                </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="saveButton">Save</button>
+                        <button type="button" class="btn btn-secondary" id="cancelButton">Cancel</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-   
-   </body>
-   </html>
+
+</body>
+
+</html>
