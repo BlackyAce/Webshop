@@ -61,10 +61,10 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public void deleteProduct(long id, String imageUrl) {
+    public void deleteProduct(long id) {
         productRepository.deleteById(id);
-        Long imageId = Long.parseLong(imageUrl);
-        fileRepository.deleteById(imageId);
+        //Long imageId = Long.parseLong(imageUrl);
+        //fileRepository.deleteById(imageId);
 
     }
 
