@@ -55,7 +55,7 @@ function displayProductForEditing(product) {
   $("#editProductActive").prop("checked", product.active);
 
   document.getElementById("deleteEditButton").addEventListener("click", function () {
-      deleteProduct(productId, imageId);
+      deleteProduct(productId);
   });
 
 }
@@ -65,7 +65,7 @@ document.getElementById("cancelEditButton").addEventListener("click", function (
   $("#productListContainer").show();
 });
 
-function deleteProduct(productId, imageId) {
+function deleteProduct(productId) {
   if (confirm("Are you sure you want to delete this product?")) {
     $.ajax({
       url: "http://localhost:8080/products/" + productId,
