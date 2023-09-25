@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import at.technikumwien.webshop.dto.ProductDTO;
 import at.technikumwien.webshop.model.Product;
-import at.technikumwien.webshop.repository.FileRepository;
 import at.technikumwien.webshop.repository.ProductRepository;
 
 import org.springframework.stereotype.Service;
@@ -15,15 +14,15 @@ import org.springframework.stereotype.Service;
 public class ProductService {
 
     private ProductRepository productRepository;
-    private FileRepository fileRepository;
+    private StorageService storageService;
 
     // /////////////////////////////////////////////////////////////////////////
     // Init
     // /////////////////////////////////////////////////////////////////////////
 
-    public ProductService(ProductRepository repository, FileRepository fileRepository) {
-        this.productRepository = repository;
-        this.fileRepository = fileRepository;
+    public ProductService(ProductRepository productRepository, StorageService storageService) {
+        this.productRepository = productRepository;
+        this.storageService = storageService;
 
     }
 
@@ -62,10 +61,15 @@ public class ProductService {
     }
 
     public void deleteProduct(long id) {
-        productRepository.deleteById(id);
-        //Long imageId = Long.parseLong(imageUrl);
-        //fileRepository.deleteById(imageId);
 
+        Optional<Product> productOptional = productRepository.findById(id);
+
+        Product product = productOptional.get();
+
+        Long imageUrl = Long.parseLong(product.getImageUrl());
+
+        productRepository.deleteById(id);
+        storageService.deleteFileById(imageUrl);
     }
 
     public Product updateProductFromDTO(Product existingProduct, ProductDTO productDTO) {
