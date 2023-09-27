@@ -64,13 +64,13 @@ $(document).ready(function() {
   });
   
   function deleteUser(userId ) {
-    if (confirm("Are you sure you want to delete this product?")) {
+    if (confirm("Are you sure you want to delete this user?")) {
       $.ajax({
-        url: "http://localhost:8080/users/" + userId,
+        url: "http://localhost:8080/user/" + userId,
         method: "DELETE",
         headers: { "Authorization": sessionStorage.getItem("token") },
         success: function (response) {
-          console.log("Deleted product:", response);
+          console.log("Deleted user:", response);
           location.reload();
   
         },
