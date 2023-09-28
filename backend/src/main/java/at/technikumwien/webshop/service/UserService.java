@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import at.technikumwien.webshop.model.User;
@@ -30,11 +29,13 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-
-    @PostMapping
     public User createUser(@RequestBody User user){
         String hashedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(hashedPassword);
         return userRepository.save(user);
+    }
+
+    public void deleteUser(long id) {
+        userRepository.deleteById(id);
     }
 }

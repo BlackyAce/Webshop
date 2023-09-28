@@ -50,7 +50,7 @@ public class UserDTO {
     @Size(max = 50, message = "Country must be less than or equal to 50 characters")
     private String country;
 
-    public UserDTO() {
+    public UserDTO(long l, String string, String string2, boolean b, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10) {
     }
 
     public UserDTO(Long id, String username, String password, boolean admin, String salutation, String firstname,
@@ -69,6 +69,9 @@ public class UserDTO {
         this.city = city;
         this.postalcode = postalcode;
         this.country = country;
+    }
+
+    public UserDTO() {
     }
 
     public Long getId() {

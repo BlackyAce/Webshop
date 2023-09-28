@@ -1,6 +1,7 @@
 package at.technikumwien.webshop.service;
 
 import at.technikumwien.webshop.model.File;
+import at.technikumwien.webshop.repository.FileRepository;
 import at.technikumwien.webshop.service.StorageService;
 
 import org.springframework.core.io.Resource;
@@ -13,15 +14,17 @@ import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-
+import java.util.Optional;
 
 @Service
 public class StorageService {
 
     private final Path storageDirectory;// The directory where files will be stored
 
-    public StorageService() {
-        // Set the storage directory
+    private FileRepository fileRepository;
+
+    public StorageService(FileRepository fileRepository) {
+        this.fileRepository = fileRepository;
         storageDirectory = Path.of("frontend/Image/"); // Replace with your desired directory path
     }
 
@@ -57,10 +60,25 @@ public class StorageService {
     }
 
     private String generateUniqueFileName(String originalFilename) {
-        // Generate a unique filename based on your requirements
-        // You can use a combination of timestamp, UUID, or any other strategy
-        // Here, we append a timestamp to the original filename
         long timestamp = System.currentTimeMillis();
         return timestamp + "_" + originalFilename;
+    }
+
+    public void deleteFileById(Long fileId) {
+        // Zuerst das File-Objekt aus der Datenbank abrufen
+        Optional<File> optionalFile = fileRepository.findById(fileId);
+
+        File fileEntity = optionalFile.get();
+        String filename = fileEntity.getPath();
+        Path filePath = storageDirectory.resolve(filename);
+
+        // Zuerst aus der Datenbank löschen
+        fileRepository.deleteById(fileId);
+
+        try {
+            Files.deleteIfExists(filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
