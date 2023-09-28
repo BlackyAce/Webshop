@@ -31,6 +31,7 @@ public class UserController {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public List<User> getAllUser() {
         return userService.getAllUsers();
     }
