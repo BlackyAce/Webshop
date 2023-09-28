@@ -85,7 +85,7 @@ public class UserControllerIntegrationTest {
         UserDTO userDTO = new UserDTO();
         userDTO.setUsername("testUsername");
         userDTO.setPassword("testPassword");
-        userDTO.setAdmin(false); // oder true, je nach Testfall
+        userDTO.setAdmin(false); 
         userDTO.setSalutation("Mr.");
         userDTO.setFirstname("Test");
         userDTO.setLastname("User");
