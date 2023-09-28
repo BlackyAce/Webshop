@@ -60,9 +60,6 @@ public class StorageService {
     }
 
     private String generateUniqueFileName(String originalFilename) {
-        // Generate a unique filename based on your requirements
-        // You can use a combination of timestamp, UUID, or any other strategy
-        // Here, we append a timestamp to the original filename
         long timestamp = System.currentTimeMillis();
         return timestamp + "_" + originalFilename;
     }

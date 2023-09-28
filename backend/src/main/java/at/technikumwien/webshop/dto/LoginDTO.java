@@ -5,6 +5,15 @@ public class LoginDTO {
     private String username;
     private String password;
 
+
+    public LoginDTO(){
+    }
+
+    public LoginDTO(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     // /////////////////////////////////////////////////////////////////////////
     // Getter
     // /////////////////////////////////////////////////////////////////////////
@@ -16,4 +25,6 @@ public class LoginDTO {
     public String getPassword() {
         return password;
     }
+
+
 }
