@@ -2,7 +2,7 @@ name: Build and test on featureBranch
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "featureBranch/**" ]
   
 jobs:
   build:
