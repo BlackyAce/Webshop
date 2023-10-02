@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  console.log("test");
   $.ajax({
     url: 'http://localhost:8080/products',
     headers: { "Authorization": sessionStorage.getItem("token") },
@@ -55,8 +54,14 @@ function displayProductForEditing(product) {
   $("#editProductActive").prop("checked", product.active);
 
   document.getElementById("deleteEditButton").addEventListener("click", function () {
-      deleteProduct(productId);
+    deleteProduct(productId);
   });
+
+  $("#saveEditButton").off("click").on("click", function () {
+    updateProduct(product);
+  });
+  
+
 
 }
 
@@ -84,3 +89,37 @@ function deleteProduct(productId) {
     location.reload();
   }
 }
+function updateProduct(product) {
+  console.log(JSON.stringify(product));
+  const updateProduct = {
+    id: product.id,
+    imageUrl: product.imageUrl,
+    name: $("#editProductName").val() || product.name,
+    description: $("#editProductDescription").val() || product.description,
+    quantity: $("#editQuantity").val() || product.quantity,
+    type: $("#editProductType").val() || product.type,
+    price: $("#editProductPrice").val() || product.price,
+    active: $("#editProductActive").prop("checked") || product.active,
+  };
+  
+  $.ajax({
+    url: 'http://localhost:8080/products/update', 
+    method: 'PUT', 
+    headers: { "Authorization": sessionStorage.getItem("token") },
+    contentType: 'application/json',
+    data: JSON.stringify(updateProduct),
+
+    success: function (response) {
+      console.log("Updated product:", response);
+      location.reload(); // Aktualisieren Sie die Seite nach der Aktualisierung.
+    },
+    error: function (xhr, status, error) {
+      console.error("Update request failed. Status:", status, "Error:", error);
+    }
+  });
+}
+
+
+
+
+
